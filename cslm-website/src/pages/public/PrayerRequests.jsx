@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaPray, FaHeart, FaCheckCircle } from 'react-icons/fa';
+import { useFirestore } from '../../hooks/useFirestore';
 
 const PrayerRequests = () => {
   const [formData, setFormData] = useState({
@@ -9,17 +10,29 @@ const PrayerRequests = () => {
     anonymous: false
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const { addDocument, loading, error, success } = useFirestore('prayers');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Connect to Firebase in Phase 3
-    console.log('Prayer request submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', request: '', anonymous: false });
-    }, 3000);
+
+    // Prepare data for Firebase
+    const prayerData = {
+      name: formData.anonymous ? 'Anonymous' : formData.name,
+      email: formData.email,
+      request: formData.request,
+      anonymous: formData.anonymous,
+      isAnswered: false, // Default to not answered
+    };
+
+    // Submit to Firebase
+    const result = await addDocument(prayerData);
+
+    if (result.success) {
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({ name: '', email: '', request: '', anonymous: false });
+      }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -110,10 +123,17 @@ const PrayerRequests = () => {
               Submit Your Prayer Request
             </h2>
 
-            {submitted && (
+            {success && (
               <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
                 <p className="font-semibold">Prayer request received!</p>
                 <p className="text-sm mt-1">Our prayer team will lift your request to God. Be encouraged!</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+                <p className="font-semibold">Error submitting prayer request</p>
+                <p className="text-sm mt-1">{error}. Please try again.</p>
               </div>
             )}
 
@@ -189,10 +209,11 @@ const PrayerRequests = () => {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 <FaPray />
-                <span>Submit Prayer Request</span>
+                <span>{loading ? 'Submitting...' : 'Submit Prayer Request'}</span>
               </button>
             </form>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { useFirestore } from '../../hooks/useFirestore';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,17 +10,20 @@ const Contact = () => {
     message: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const { addDocument, loading, error, success } = useFirestore('contacts');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Connect to Firebase in Phase 3
-    console.log('Contact form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+
+    // Submit to Firebase
+    const result = await addDocument(formData);
+
+    if (result.success) {
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -166,9 +170,15 @@ const Contact = () => {
                   Send Us a Message
                 </h2>
 
-                {submitted && (
+                {success && (
                   <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
                     Thank you for your message! We'll get back to you soon.
+                  </div>
+                )}
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+                    Error: {error}. Please try again.
                   </div>
                 )}
 
@@ -244,9 +254,10 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg"
+                    disabled={loading}
+                    className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>

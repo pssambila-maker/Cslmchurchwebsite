@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaHeart, FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { useFirestore } from '../../hooks/useFirestore';
 
 const Testimonials = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const Testimonials = () => {
     testimony: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const { addDocument, loading, error, success } = useFirestore('testimonials');
 
   const testimonials = [
     {
@@ -25,14 +26,26 @@ const Testimonials = () => {
     }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Testimony submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', testimony: '' });
-    }, 3000);
+
+    // Prepare data for Firebase
+    const testimonialData = {
+      name: formData.name,
+      email: formData.email,
+      testimony: formData.testimony,
+      isApproved: false, // Testimonials need admin approval before showing publicly
+    };
+
+    // Submit to Firebase
+    const result = await addDocument(testimonialData);
+
+    if (result.success) {
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({ name: '', email: '', testimony: '' });
+      }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -113,10 +126,17 @@ const Testimonials = () => {
               Has God done something amazing in your life? Share your story to encourage others!
             </p>
 
-            {submitted && (
+            {success && (
               <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
                 <p className="font-semibold">Thank you for sharing your testimony!</p>
                 <p className="text-sm mt-1">It will be reviewed before publishing.</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+                <p className="font-semibold">Error submitting testimony</p>
+                <p className="text-sm mt-1">{error}. Please try again.</p>
               </div>
             )}
 
@@ -171,9 +191,10 @@ const Testimonials = () => {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg"
+                disabled={loading}
+                className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Submit Testimony
+                {loading ? 'Submitting...' : 'Submit Testimony'}
               </button>
             </form>
           </div>
