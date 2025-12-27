@@ -37,8 +37,8 @@ const Events = () => {
                 <div className="flex items-start gap-3">
                   <FaClock className="text-primary-600 text-xl mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-gray-900">Evening Service</p>
-                    <p className="text-gray-600 text-sm">Time to be announced</p>
+                    <p className="font-semibold text-gray-900">7:00 PM EST</p>
+                    <p className="text-gray-600 text-sm">Evening Prayer Service</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -77,7 +77,8 @@ const Events = () => {
                   <FaClock className="text-primary-600 text-xl mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900">Daily Prayer Times</p>
-                    <p className="text-gray-600 text-sm">Details to be announced</p>
+                    <p className="text-gray-600 text-sm">5:45 AM - 6:45 AM & 6:00 PM - 7:00 PM</p>
+                    <p className="text-gray-600 text-sm">(Monday - Saturday)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
