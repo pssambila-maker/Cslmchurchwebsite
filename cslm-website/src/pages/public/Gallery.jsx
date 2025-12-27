@@ -18,28 +18,59 @@ const Gallery = () => {
       }
 
       try {
-        // Reference to the 'gallery' folder in Firebase Storage
-        const galleryRef = ref(storage, 'gallery');
+        // Try both 'gallery' and 'gallery/gallery' paths
+        let allImages = [];
 
-        // List all items in the gallery folder
-        const result = await listAll(galleryRef);
+        // Try the main gallery folder
+        try {
+          const galleryRef = ref(storage, 'gallery');
+          const result = await listAll(galleryRef);
 
-        // Get download URLs for all images
-        const urlPromises = result.items.map(async (imageRef) => {
-          const url = await getDownloadURL(imageRef);
-          return {
-            url,
-            name: imageRef.name,
-            path: imageRef.fullPath
-          };
-        });
+          console.log('Found items in gallery/', result.items.length);
+          console.log('Found prefixes in gallery/', result.prefixes.length);
 
-        const imageUrls = await Promise.all(urlPromises);
-        setImages(imageUrls);
+          const urlPromises = result.items.map(async (imageRef) => {
+            const url = await getDownloadURL(imageRef);
+            return {
+              url,
+              name: imageRef.name,
+              path: imageRef.fullPath
+            };
+          });
+
+          allImages = await Promise.all(urlPromises);
+        } catch (err) {
+          console.log('Error reading gallery/', err);
+        }
+
+        // Also try gallery/gallery subfolder
+        try {
+          const subGalleryRef = ref(storage, 'gallery/gallery');
+          const subResult = await listAll(subGalleryRef);
+
+          console.log('Found items in gallery/gallery/', subResult.items.length);
+
+          const subUrlPromises = subResult.items.map(async (imageRef) => {
+            const url = await getDownloadURL(imageRef);
+            return {
+              url,
+              name: imageRef.name,
+              path: imageRef.fullPath
+            };
+          });
+
+          const subImages = await Promise.all(subUrlPromises);
+          allImages = [...allImages, ...subImages];
+        } catch (err) {
+          console.log('Error reading gallery/gallery/', err);
+        }
+
+        console.log('Total images found:', allImages.length);
+        setImages(allImages);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching gallery images:', err);
-        setError('Unable to load gallery images. The gallery folder may be empty or there was an error.');
+        setError(`Unable to load gallery images. Error: ${err.message}`);
         setLoading(false);
       }
     };
