@@ -1,13 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   body {
-    @apply font-sans text-gray-900 bg-white;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: rgb(17 24 39);
+    background-color: white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 }
