@@ -17,6 +17,14 @@ export const useFirestore = (collectionName) => {
     setError(null);
     setSuccess(false);
 
+    // Check if Firebase is configured
+    if (!db) {
+      console.warn('Firebase not configured. Form data:', data);
+      setError('Firebase not configured. Please set up your Firebase credentials.');
+      setLoading(false);
+      return { success: false, error: 'Firebase not configured' };
+    }
+
     try {
       // Add the document to Firestore with a server timestamp
       const docRef = await addDoc(collection(db, collectionName), {
