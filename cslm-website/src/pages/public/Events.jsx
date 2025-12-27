@@ -1,4 +1,4 @@
-import { FaCalendar, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCalendar, FaClock, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 const Events = () => {
   return (
@@ -82,6 +82,13 @@ const Events = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
+                  <FaPhone className="text-primary-600 text-xl mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Prayer Line</p>
+                    <p className="text-gray-600 text-sm">(866) 337-4509</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
                   <FaMapMarkerAlt className="text-primary-600 text-xl mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900">Christ Successful Life Ministry</p>
@@ -89,9 +96,12 @@ const Events = () => {
                   </div>
                 </div>
                 <div className="pt-4 border-t border-gray-200">
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 mb-3">
                     Start the new year right with 27 days of consecration, fasting, and prayer.
                     Seek God's face for direction, breakthrough, and spiritual renewal for 2026.
+                  </p>
+                  <p className="text-gray-600 text-sm italic">
+                    Note: No weekly Bible studies during this fasting period.
                   </p>
                 </div>
               </div>
