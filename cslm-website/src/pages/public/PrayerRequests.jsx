@@ -91,7 +91,7 @@ const PrayerRequests = () => {
                 <FaPray size={24} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Morning Glory</h3>
-              <p className="text-gray-600 font-semibold">Mon, Wed, Fri</p>
+              <p className="text-gray-600 font-semibold">Five days a week</p>
               <p className="text-primary-600 font-bold">5:45 AM ET</p>
               <p className="text-sm text-gray-500 mt-2">Join us: +1-866-337-4509</p>
             </div>
@@ -153,7 +153,7 @@ const PrayerRequests = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0A95C9] focus:border-[#0A95C9] outline-none transition-colors"
                   placeholder="Enter your name"
                   disabled={formData.anonymous}
                 />
@@ -170,7 +170,7 @@ const PrayerRequests = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0A95C9] focus:border-[#0A95C9] outline-none transition-colors"
                   placeholder="your@email.com"
                 />
                 <p className="text-sm text-gray-500 mt-1">
@@ -189,7 +189,7 @@ const PrayerRequests = () => {
                   onChange={handleChange}
                   required
                   rows="6"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0A95C9] focus:border-[#0A95C9] outline-none transition-colors resize-none"
                   placeholder="How can we pray for you?"
                 ></textarea>
                 <p className="text-sm text-gray-500 mt-1">
@@ -204,7 +204,7 @@ const PrayerRequests = () => {
                   name="anonymous"
                   checked={formData.anonymous}
                   onChange={handleChange}
-                  className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-2 focus:ring-primary-500"
+                  className="w-5 h-5 text-[#0A95C9] border-gray-300 rounded focus:ring-2 focus:ring-[#0A95C9]"
                 />
                 <label htmlFor="anonymous" className="text-sm text-gray-700">
                   Submit this prayer request anonymously
@@ -214,7 +214,7 @@ const PrayerRequests = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-700 transition-colors shadow-lg flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full px-8 py-4 bg-[#0A95C9] text-white rounded-md font-semibold hover:bg-[#0072bc] transition-colors shadow-lg flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 <FaPray />
                 <span>{loading ? 'Submitting...' : 'Submit Prayer Request'}</span>
@@ -225,7 +225,7 @@ const PrayerRequests = () => {
       </div>
 
       {/* Answered Prayers Teaser */}
-      <div className="bg-primary-700 text-white py-16 px-4">
+      <div className="bg-[#0072bc] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <FaCheckCircle className="text-6xl mx-auto mb-6 text-green-300" />
           <h2 className="text-3xl font-heading font-bold mb-6">
@@ -241,7 +241,7 @@ const PrayerRequests = () => {
           </p>
           <a
             href="/testimonials"
-            className="inline-block px-8 py-3 bg-white text-primary-700 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-block px-8 py-3 bg-white text-[#0072bc] rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg"
           >
             Read Testimonies
           </a>

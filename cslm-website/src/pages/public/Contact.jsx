@@ -151,7 +151,7 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
                   <div className="flex gap-4">
                     <a
-                      href="https://facebook.com"
+                      href="https://www.facebook.com/share/p/1TkPwmQmXw/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
@@ -160,7 +160,7 @@ const Contact = () => {
                       <FaFacebook size={24} />
                     </a>
                     <a
-                      href="https://youtube.com"
+                      href="https://www.youtube.com/@cslmchurch"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors"

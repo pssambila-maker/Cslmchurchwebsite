@@ -123,7 +123,7 @@ const Services = () => {
                   Morning Glory Prayers
                 </h3>
                 <div className="text-center">
-                  <p className="text-gray-700 font-semibold">Monday, Wednesday, Friday</p>
+                  <p className="text-gray-700 font-semibold">Mon, Tues, Wed, Thurs, Fri</p>
                   <p className="text-[#0A95C9] font-bold text-lg">5:45 AM ET</p>
                   <p className="text-sm text-gray-600 mt-3">Conference Line:</p>
                   <p className="text-sm font-semibold text-gray-700">+1-866-337-4509</p>

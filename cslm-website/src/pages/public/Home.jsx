@@ -201,7 +201,7 @@ const Home = () => {
           </ScrollReveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: FaPray, title: "Morning Glory Prayers", time: "Mon, Wed, Fri", sub: "5:45 AM ET", extra: "Call: +1-866-337-4509" },
+              { icon: FaPray, title: "Morning Glory Prayers", time: "Mon, Tues, Wed, Thurs, Fri", sub: "5:45 AM ET", extra: "Call: +1-866-337-4509" },
               { icon: FaBook, title: "Choir Rehearsal", time: "Saturdays", sub: "10:00 AM" },
               { icon: FaHeart, title: "All Night Prayer", time: "Last Friday", sub: "Monthly" },
               { icon: FaPray, title: "Fasting & Prayer", time: "Every Friday", sub: "All Day" }

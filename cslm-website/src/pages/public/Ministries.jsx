@@ -119,6 +119,7 @@ const Ministries = () => {
       </div>
 
       {/* Ministries Grid */}
+      {/* Ministries Grid */}
       <div className="bg-gray-50 py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -127,15 +128,15 @@ const Ministries = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all p-8 border-2 border-gray-100 hover:border-primary-300"
+                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all p-8 border-2 border-gray-100 hover:border-[#4dd3ff]"
                 >
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full mb-6 mx-auto">
+                  <div className="flex items-center justify-center w-16 h-16 bg-[#e0f7ff] text-[#0A95C9] rounded-full mb-6 mx-auto">
                     <Icon size={32} />
                   </div>
                   <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2 text-center">
                     {ministry.name}
                   </h3>
-                  <p className="text-primary-600 font-semibold text-center mb-4">
+                  <p className="text-[#0A95C9] font-semibold text-center mb-4">
                     Led by {ministry.leader}
                   </p>
                   <p className="text-gray-600 mb-6 text-center">
@@ -146,7 +147,7 @@ const Ministries = () => {
                     <ul className="space-y-2">
                       {ministry.activities.map((activity, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                          <span className="text-primary-600 mt-1">•</span>
+                          <span className="text-[#0A95C9] mt-1">•</span>
                           <span>{activity}</span>
                         </li>
                       ))}
@@ -167,7 +168,7 @@ const Ministries = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-[#0A95C9] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Attend a Service</h3>
@@ -177,7 +178,7 @@ const Ministries = () => {
             </div>
 
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-[#0A95C9] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Connect with Leaders</h3>
@@ -187,7 +188,7 @@ const Ministries = () => {
             </div>
 
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <div className="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-[#0A95C9] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 3
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Start Serving</h3>
@@ -200,7 +201,7 @@ const Ministries = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-primary-700 text-white py-16 px-4">
+      <div className="bg-[#0072bc] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <FaHandsHelping className="text-6xl mx-auto mb-6 text-blue-100" />
           <h2 className="text-3xl font-heading font-bold mb-6">
@@ -213,13 +214,13 @@ const Ministries = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="px-8 py-3 bg-white text-primary-700 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+              className="px-8 py-3 bg-white text-[#0072bc] rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Contact Us
             </a>
             <a
               href="/services"
-              className="px-8 py-3 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-800 transition-colors border-2 border-white shadow-lg"
+              className="px-8 py-3 bg-[#0A95C9] text-white rounded-md font-semibold hover:bg-[#015891] transition-colors border-2 border-white shadow-lg"
             >
               Plan Your Visit
             </a>

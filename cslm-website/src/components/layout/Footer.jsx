@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/p/1TkPwmQmXw/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -27,7 +27,7 @@ const Footer = () => {
                 <FaFacebook size={20} />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@cslmchurch"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -130,8 +130,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <FaEnvelope className="text-primary-500 flex-shrink-0" />
-                <a href="mailto:info@christsuccessfullife.org" className="hover:text-primary-400 transition-colors duration-300">
-                  info@christsuccessfullife.org
+                <a href="mailto:cslmchurch@gmail.com" className="hover:text-primary-400 transition-colors duration-300">
+                  cslmchurch@gmail.com
                 </a>
               </li>
             </ul>
