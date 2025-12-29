@@ -3,8 +3,12 @@ import { FaHeart, FaPaypal, FaCreditCard, FaHandHoldingHeart } from 'react-icons
 const Donate = () => {
   return (
     <div>
-      <div className="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <div
+        className="relative bg-cover bg-center text-white py-20 md:py-32 px-4"
+        style={{ backgroundImage: "url('/images/banners/Donations.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative max-w-7xl mx-auto text-center">
           <FaHeart className="text-6xl mx-auto mb-4 text-blue-100" />
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
             Give & Support

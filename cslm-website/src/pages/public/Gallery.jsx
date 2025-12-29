@@ -31,6 +31,8 @@ const Gallery = () => {
 
           const urlPromises = result.items.map(async (imageRef) => {
             const url = await getDownloadURL(imageRef);
+            console.log('Image URL:', url);
+            console.log('Image name:', imageRef.name);
             return {
               url,
               name: imageRef.name,
@@ -52,6 +54,8 @@ const Gallery = () => {
 
           const subUrlPromises = subResult.items.map(async (imageRef) => {
             const url = await getDownloadURL(imageRef);
+            console.log('Sub-gallery Image URL:', url);
+            console.log('Sub-gallery Image name:', imageRef.name);
             return {
               url,
               name: imageRef.name,
@@ -88,8 +92,12 @@ const Gallery = () => {
 
   return (
     <div>
-      <div className="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <div
+        className="relative bg-cover bg-center text-white py-20 md:py-32 px-4"
+        style={{ backgroundImage: "url('/images/banners/Prayers.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative max-w-7xl mx-auto text-center">
           <FaImages className="text-6xl mx-auto mb-4 text-blue-100" />
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
             Photo Gallery
@@ -142,9 +150,18 @@ const Gallery = () => {
                   onClick={() => openLightbox(image)}
                 >
                   <img
-                    src={image.url}
-                    alt={`Gallery ${index + 1}`}
+                    src={`${image.url}${image.url.includes('?') ? '&' : '?'}t=${Date.now()}`}
+                    alt={image.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      console.error('Failed to load image:', image.url);
+                      console.error('Image path:', image.path);
+                      e.target.style.backgroundColor = '#fee';
+                    }}
+                    onLoad={() => {
+                      console.log('Successfully loaded image:', image.name);
+                    }}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity flex items-center justify-center">
                     <FaImages className="text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -169,9 +186,10 @@ const Gallery = () => {
             <FaTimes className="text-4xl" />
           </button>
           <img
-            src={selectedImage.url}
+            src={`${selectedImage.url}${selectedImage.url.includes('?') ? '&' : '?'}t=${Date.now()}`}
             alt="Full size"
             className="max-w-full max-h-full object-contain"
+            referrerPolicy="no-referrer"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

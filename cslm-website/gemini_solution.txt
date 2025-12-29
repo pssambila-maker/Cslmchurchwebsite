@@ -1,0 +1,47 @@
+1. The CORS Issue (Most Likely)
+If you are displaying these images in a web application (React, Next.js, Vue, etc.), the browser will often block the images from loading if "Cross-Origin Resource Sharing" (CORS) is not configured on your Firebase Storage bucket.
+
+The Fix: You cannot set CORS in the Firebase Console or the Rules file. You must run a command from your terminal using the Google Cloud CLI (gcloud or gsutil).
+
+Create a file named cors.json on your computer:
+
+JSON
+
+[
+  {
+    "origin": ["*"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
+Run this command in your terminal (replacing YOUR_BUCKET_NAME with your actual storage bucket URL, e.g., gs://your-app.appspot.com):
+
+Bash
+
+gsutil cors set cors.json gs://YOUR_BUCKET_NAME
+2. Incorrect Image URL Format
+Browsers cannot read Firebase Storage paths directly (e.g., gs://bucket/image.png). They need a valid HTTPS Download URL.
+
+Wrong: <img src="gs://my-app.appspot.com/images/pic.jpg" />
+
+Wrong: <img src="images/pic.jpg" />
+
+Correct: <img src="https://firebasestorage.googleapis.com/v0/b/..." />
+
+How to check: Right-click one of those broken images on your site and select "Open image in new tab".
+
+If the URL looks like a file path rather than a long HTTPS link, your code is not generating the "Download URL" correctly.
+
+If it opens a new tab and shows an error message (like XML code saying NoSuchKey), the file path is incorrect.
+
+3. Next.js / Image Optimization (If applicable)
+If you are using a framework like Next.js and its <Image /> component, you must "allow" the Firebase domain in your configuration.
+
+If you see an error in your console saying hostname "firebasestorage.googleapis.com" is not configured, you need to update your next.config.js:
+
+JavaScript
+
+module.exports = {
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+  },

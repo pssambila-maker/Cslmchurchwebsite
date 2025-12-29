@@ -5,30 +5,30 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-24 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
-            Welcome to Christ Successful Life Ministries
+      <div
+        className="relative bg-cover bg-center bg-no-repeat text-white h-[600px] flex items-center px-4"
+        style={{ backgroundImage: "url('/images/banners/AboutUs.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        <div className="relative max-w-7xl mx-auto text-center md:text-left w-full">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 animate-slide-in-left">
+            Welcome!
           </h1>
-          <p className="text-xl md:text-2xl mb-4">
-            CSLM Church is glad and honored to host your visit
+          <h3 className="text-2xl md:text-3xl font-semibold mb-6 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
+            Bienvenue!
+          </h3>
+          <p className="text-base md:text-lg mb-8 max-w-2xl animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
+            CSLM Church is glad and honored to host your visit. While you are browsing,
+            you'll get a glimpse of who we are and the God we purposefully serve. Enjoy the
+            website, then come fellowship with us to fully understand the truth of God best
+            known via an encounter with Jesus.
           </p>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-            While you are browsing, you'll get a glimpse of who we are and the God we purposefully serve.
-            We invite you to fellowship with us to fully understand the truth of God best known via an encounter with Jesus.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-slide-in-left" style={{ animationDelay: '0.6s' }}>
             <Link
-              to="/services"
-              className="px-8 py-3 bg-white text-primary-700 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+              to="/about"
+              className="px-8 py-3 bg-primary-500 text-white rounded-md font-semibold hover:bg-primary-600 transition-colors shadow-lg inline-block"
             >
-              Plan Your Visit
-            </Link>
-            <Link
-              to="/prayers"
-              className="px-8 py-3 bg-primary-600 text-white rounded-md font-semibold hover:bg-primary-800 transition-colors border-2 border-white shadow-lg"
-            >
-              Prayer Request
+              About Us
             </Link>
           </div>
         </div>

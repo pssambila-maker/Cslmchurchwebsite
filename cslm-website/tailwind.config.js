@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#e0f7ff',
+          100: '#b3ebff',
+          200: '#80dfff',
+          300: '#4dd3ff',
+          400: '#26c9ff',
+          500: '#00aeef',
+          600: '#0A95C9',
+          700: '#0072bc',
+          800: '#015891',
+          900: '#014166',
         },
         secondary: {
           50: '#fafafa',
@@ -33,8 +33,28 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Raleway', 'system-ui', 'sans-serif'],
         heading: ['Poppins', 'sans-serif'],
+      },
+      animation: {
+        'slide-in-left': 'slideInLeft 1s ease-out',
+        'fade-in': 'fadeIn 1s ease-out',
+      },
+      keyframes: {
+        slideInLeft: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(-100px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
     },
   },
