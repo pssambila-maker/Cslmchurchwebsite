@@ -37,14 +37,14 @@ export default {
         heading: ['Poppins', 'sans-serif'],
       },
       animation: {
-        'slide-in-left': 'slideInLeft 1s ease-out',
-        'fade-in': 'fadeIn 1s ease-out',
+        'slide-in-left': 'slideInLeft 1s ease-out forwards',
+        'fade-in': 'fadeIn 1s ease-out forwards',
       },
       keyframes: {
         slideInLeft: {
           '0%': {
             opacity: '0',
-            transform: 'translateX(-100px)',
+            transform: 'translateX(-50px)',
           },
           '100%': {
             opacity: '1',

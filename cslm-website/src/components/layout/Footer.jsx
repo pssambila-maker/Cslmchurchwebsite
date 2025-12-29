@@ -52,27 +52,27 @@ const Footer = () => {
             <h3 className="text-white text-lg font-heading font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
+                <Link to="/about" className="hover:text-primary-400 transition-colors duration-300">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/ministries" className="hover:text-white transition-colors">
+                <Link to="/ministries" className="hover:text-primary-400 transition-colors duration-300">
                   Ministries
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition-colors">
+                <Link to="/services" className="hover:text-primary-400 transition-colors duration-300">
                   Service Hours
                 </Link>
               </li>
               <li>
-                <Link to="/leadership" className="hover:text-white transition-colors">
+                <Link to="/leadership" className="hover:text-primary-400 transition-colors duration-300">
                   Leadership
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-white transition-colors">
+                <Link to="/events" className="hover:text-primary-400 transition-colors duration-300">
                   Events
                 </Link>
               </li>
@@ -84,27 +84,27 @@ const Footer = () => {
             <h3 className="text-white text-lg font-heading font-bold mb-4">Get Involved</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/prayers" className="hover:text-white transition-colors">
+                <Link to="/prayers" className="hover:text-primary-400 transition-colors duration-300">
                   Prayer Requests
                 </Link>
               </li>
               <li>
-                <Link to="/testimonials" className="hover:text-white transition-colors">
+                <Link to="/testimonials" className="hover:text-primary-400 transition-colors duration-300">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:text-white transition-colors">
+                <Link to="/gallery" className="hover:text-primary-400 transition-colors duration-300">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-white transition-colors">
+                <Link to="/donate" className="hover:text-primary-400 transition-colors duration-300">
                   Donate
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
+                <Link to="/contact" className="hover:text-primary-400 transition-colors duration-300">
                   Contact Us
                 </Link>
               </li>
@@ -124,13 +124,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhone className="text-primary-500 flex-shrink-0" />
-                <a href="tel:+12488285305" className="hover:text-white transition-colors">
+                <a href="tel:+12488285305" className="hover:text-primary-400 transition-colors duration-300">
                   +1 248-828-5305
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <FaEnvelope className="text-primary-500 flex-shrink-0" />
-                <a href="mailto:info@christsuccessfullife.org" className="hover:text-white transition-colors">
+                <a href="mailto:info@christsuccessfullife.org" className="hover:text-primary-400 transition-colors duration-300">
                   info@christsuccessfullife.org
                 </a>
               </li>
